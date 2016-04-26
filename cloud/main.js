@@ -12,6 +12,11 @@ var pusher = new Pusher({
   encrypted: true
 });
 
-pusher.trigger('test_channel', 'my_event', {
-  "message": "hello world"
+
+Parse.Cloud.define('pushertest', function(req, res) {
+	pusher.trigger('test_channel', 'my_event', {
+  		"message": "hello world"
+	});
+
+  res.success('pusher hi');
 });
