@@ -13,6 +13,19 @@ if (!databaseUri) {
 
 var S3Adapter = require('parse-server').S3Adapter;
 
+var Pusher = require('pusher');
+
+  var pusher = new Pusher({
+    appId: '201341',
+    key: '10da7363ffe998a2030c',
+    secret: 'f184be84d27c85f25ad5',
+    encrypted: true
+  });
+
+  pusher.trigger('test_channel', 'my_event', {
+      "message": "hello world"
+  });
+
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://heroku_gmvhctw6:74rnvh56s3vv1floaodmsoveof@ds021771.mlab.com:21771/heroku_gmvhctw6',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
