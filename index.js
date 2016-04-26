@@ -11,6 +11,8 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
+var S3Adapter = require('parse-server').S3Adapter;
+
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://heroku_gmvhctw6:74rnvh56s3vv1floaodmsoveof@ds021771.mlab.com:21771/heroku_gmvhctw6',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
@@ -19,7 +21,13 @@ var api = new ParseServer({
   serverURL: process.env.SERVER_URL || 'https://instagram-jintao.herokuapp.com/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
-  }
+  },
+  filesAdapter: new S3Adapter(
+    "AKIAJSQW5YHTAZOPM47Q",
+    "NxoZYosZZrCuJG3bEg3DvgofCWWRNnHxtdYdfKdp",
+    "instagram-jintao",
+    {directAccess: true}
+  )
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
