@@ -37,11 +37,11 @@ var app = express();
 
 // var bodyParser = require('body-parser');
 
-// var Pusher = require('cloud/modules/node_modules/pusher/parse');
+var Pusher = require('pusher');
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: false }));
 
-// var pusher = new Pusher({ appId: '201341', key: '10da7363ffe998a2030c', secret:  'f184be84d27c85f25ad5' });
+var pusher = new Pusher({ appId: '201341', key: '10da7363ffe998a2030c', secret:  'f184be84d27c85f25ad5' });
 
 // app.post('/pusher/auth', function(req, res) {
 //   var socketId = req.body.socket_id;
