@@ -35,20 +35,20 @@ var api = new ParseServer({
 
 var app = express();
 
-var bodyParser = require('body-parser');
+// var bodyParser = require('body-parser');
 
 var Pusher = require('cloud/modules/pusher/pusher');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 var pusher = new Pusher({ appId: '201341', key: '10da7363ffe998a2030c', secret:  'f184be84d27c85f25ad5' });
 
-app.post('/pusher/auth', function(req, res) {
-  var socketId = req.body.socket_id;
-  var channel = req.body.channel_name;
-  var auth = pusher.authenticate(socketId, channel);
-  res.send(auth);
-});
+// app.post('/pusher/auth', function(req, res) {
+//   var socketId = req.body.socket_id;
+//   var channel = req.body.channel_name;
+//   var auth = pusher.authenticate(socketId, channel);
+//   res.send(auth);
+// });
 
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
