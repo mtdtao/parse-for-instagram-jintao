@@ -37,7 +37,7 @@ var app = express();
 
 // var bodyParser = require('body-parser');
 
-var Pusher = require('cloud/modules/pusher/pusher');
+var Pusher = require('cloud/modules/node_modules/pusher/parse');
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: false }));
 
