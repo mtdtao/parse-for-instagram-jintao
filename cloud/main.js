@@ -26,8 +26,8 @@ Parse.Cloud.define('pushertest', function(req, res) {
 
 Parse.Cloud.define('authorizePusherChannel', function (request, response) {
 	if (!request.user) { response.error('User should be autenticated.'); }
-	var pusherAppKey = 'your-pusher-app-key';
-	var pusherAppSecret = 'your-pusher-app-secret';
+	var pusherAppKey = '10da7363ffe998a2030c';
+	var pusherAppSecret = 'f184be84d27c85f25ad5';
 	var stringToSign = request.params.socketid + ':' + request.params.channelname;
 	var authToken = pusherAppKey + ':' + crypto.createHmac('sha256', pusherAppSecret).update(stringToSign).digest('hex');
 	response.success(JSON.stringify({auth:authToken}));
